@@ -1,0 +1,14 @@
+numpy==2.5.4
+pillow==13.0.0
+pandas==3.0.6
+matplotlib==3.11.2
+onnxruntime==1.31.0
+ddddocr==1.6.1
+rapidocr==3.10.0
+requests[socks]==2.34.2
+python-dotenv==1.2.4
+huggingface-hub==0.36.2
+safetensors==0.8.0
+nbformat==5.11.1
+nbclient==0.11.0
+ipykernel==7.4.0

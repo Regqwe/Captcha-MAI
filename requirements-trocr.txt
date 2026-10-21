@@ -1,0 +1,3 @@
+# Optional heavy TrOCR comparison. Install the CPU torch wheel separately (README).
+-r requirements.txt
+transformers==4.57.6
