@@ -1,92 +1,78 @@
-"""Real inference on the frozen labeled holdout, never mocked predictions."""
+"""Evaluation of the single final model on real labeled images."""
+import hashlib
 import importlib.metadata
 import json
 import math
 from pathlib import Path
 import platform
-import re
 from statistics import NormalDist
 import time
-
-import numpy as np
 import pandas as pd
 from PIL import Image
 import psutil
+from .data import ROOT,save_json
 
-from .data import ROOT, save_json
-
-RESULTS = ROOT / 'research/results'
-PROMPT = ('Transcribe only the characters in this image, in order. Return just the string, '
-          'preserving case and leading zeros. If unreadable, return exactly UNREADABLE.')
-LOCAL_MODELS = ['ppocr-tiny','ppocr-small','ddddocr-beta','crnn-base','conv-transformer-base']
+MODEL='ppocr-small'
+RESULTS=ROOT/'research/results'
 
 
 def manifest(name='holdout', *, require_images=False):
-    if name == 'target':
-        path = ROOT / 'datasets/target/annotations.csv'
-    else:
-        path = ROOT / 'datasets/captcha-images' / (name+'_labels.csv')
-    frame = pd.read_csv(path,dtype=str,keep_default_na=False)
-    if not frame.image_id.is_unique:
-        raise ValueError('Duplicate image IDs')
-    frame['path'] = frame.image_path.map(lambda p:str(ROOT/p))
-    if require_images and not frame.path.map(lambda p:Path(p).is_file()).all():
-        raise FileNotFoundError('Run python scripts/run.py prepare to extract the real dataset')
+    if name not in {'holdout','target'}:raise ValueError('Choose holdout or target')
+    path=ROOT/('datasets/holdout/labels.csv' if name=='holdout' else 'datasets/target/annotations.csv')
+    frame=pd.read_csv(path,dtype=str,keep_default_na=False)
+    if not frame.image_id.is_unique:raise ValueError('Duplicate image IDs')
+    frame['path']=frame.image_path.map(lambda value:str(ROOT/value))
+    if require_images:
+        for row in frame.itertuples():
+            image=Path(row.path)
+            if not image.is_file() or hashlib.sha256(image.read_bytes()).hexdigest()!=row.sha256:
+                raise RuntimeError('Missing or changed evaluation image: '+row.image_id)
     return frame
 
 
-def factory(model):
-    from .onnx_models import load_ddddocr, load_ppocr
-    if model == 'ppocr-tiny':return load_ppocr('tiny')
-    if model == 'ppocr-small':return load_ppocr('small')
-    if model == 'ddddocr-beta':return load_ddddocr(True)
-    from .hf_models import load_graf
-    if model == 'crnn-base':return load_graf('Graf-J/captcha-crnn-base')
-    if model == 'conv-transformer-base':return load_graf('Graf-J/captcha-conv-transformer-base')
-    raise ValueError('Unknown frozen model')
+def load_predictions(dataset):
+    return pd.read_csv(RESULTS/(dataset+'.csv'),dtype={'image_id':str,'label':str,'prediction':str},keep_default_na=False)
 
 
-def _local_row(item, predictor, model, dataset):
-    start=time.perf_counter()
-    prediction, score, error, detail='',None,'',''
-    try:
-        with Image.open(item.path) as im:image=im.convert('RGB')
-        prediction,score=predictor(image)
-    except Exception as exc:
-        error=type(exc).__name__
-        detail=getattr(exc,'safe_message','')
-    elapsed=(time.perf_counter()-start)*1000
-    return dict(model=model,dataset=dataset,image_id=item.image_id,prediction=str(prediction),
-                score=score,elapsed_ms=elapsed,error=error,error_detail=detail)
-
-
-def run_local(model):
-    """Always performs model inference; does not load old prediction CSVs."""
-    RESULTS.mkdir(parents=True,exist_ok=True)
-    folder=RESULTS/model;folder.mkdir(exist_ok=True)
-    start=time.perf_counter();predictor=factory(model);init_ms=(time.perf_counter()-start)*1000
-    validation=manifest('validation',require_images=True)
-    warm=_local_row(next(validation.itertuples()),predictor,model,'warmup')
-    if warm['error']:raise RuntimeError('Warmup failed: '+warm['error'])
-    frames={}
-    max_rss=psutil.Process().memory_info().rss
+def run_benchmark():
+    from .model import load_model
+    for dataset in ['holdout','target']:manifest(dataset,require_images=True)
+    started=time.perf_counter();predict=load_model();init_ms=(time.perf_counter()-started)*1000
+    started=time.perf_counter();predict(Image.new('RGB',(160,48),'white'))
+    warmup_ms=(time.perf_counter()-started)*1000
+    frames={};max_rss=psutil.Process().memory_info().rss
     for dataset in ['holdout','target']:
-        data=manifest(dataset,require_images=True);rows=[]
-        for i,item in enumerate(data.itertuples(),1):
-            rows.append(_local_row(item,predictor,model,dataset))
+        labels=manifest(dataset);rows=[]
+        for i,row in enumerate(labels.itertuples(),1):
+            start=time.perf_counter();prediction='';score=None;error=''
+            try:
+                with Image.open(row.path) as image:prediction,score=predict(image.convert('RGB'))
+            except Exception as exc:error=type(exc).__name__
+            rows.append(dict(image_id=row.image_id,model=MODEL,dataset=dataset,prediction=str(prediction),
+                             score=score,error=error,elapsed_ms=(time.perf_counter()-start)*1000))
             max_rss=max(max_rss,psutil.Process().memory_info().rss)
-            if i%200==0:print(model,dataset,i,'/',len(data),flush=True)
-        frame=pd.DataFrame(rows);save_predictions(model,dataset,frame)
+            if i%200==0:print(MODEL,dataset,i,'/',len(labels),flush=True)
+        predictions=pd.DataFrame(rows)
+        frame=labels[['image_id','label','label_status']].merge(predictions,on='image_id',validate='one_to_one')
+        eligible=frame.label.ne('') & frame.label_status.ne('ambiguous')
+        frame['correct']=pd.array([None]*len(frame),dtype='boolean')
+        frame.loc[eligible,'correct']=frame.loc[eligible,'error'].eq('') & frame.loc[eligible,'prediction'].eq(frame.loc[eligible,'label'])
+        RESULTS.mkdir(exist_ok=True);frame.to_csv(RESULTS/(dataset+'.csv'),index=False)
         frames[dataset]=frame
-    versions={}
-    for p in ['numpy','pillow','onnxruntime','rapidocr','ddddocr','torch']:
-        try:versions[p]=importlib.metadata.version(p)
-        except importlib.metadata.PackageNotFoundError:pass
-    save_json(folder/'run.json',dict(model=model,init_ms=init_ms,warmup_ms=warm['elapsed_ms'],
-        observed_rss_max_mb=max_rss/1024**2,rss_scope='whole kernel, sampled after each image; not isolated weight memory',
-        platform=platform.platform(),versions=versions,parameters=getattr(predictor,'parameters',None),
-        revision=getattr(predictor,'revision',None),batch_size=1,cache_predictions=False))
+    save_json(RESULTS/'run.json',dict(model=MODEL,init_ms=init_ms,warmup_ms=warmup_ms,
+        warmup='blank white image, excluded from evaluation',batch_size=1,cache_predictions=False,
+        observed_rss_max_mb=max_rss/1024**2,rss_scope='whole kernel sampled after each image',
+        platform=platform.platform(),versions={name:importlib.metadata.version(name) for name in
+            ['numpy','pillow','pandas','rapidocr','onnxruntime']},
+        weight_sha256=json.loads((ROOT/'research/model.json').read_text())['sha256'],
+        holdout_manifest_sha256=hashlib.sha256((ROOT/'datasets/holdout/labels.csv').read_bytes()).hexdigest(),
+        timing_scope='image open + preprocessing + inference + decoding; initialization/warmup separate'))
     return frames
+
+
+def summary_frame():
+    return pd.DataFrame([dict(model=MODEL,dataset=dataset,**metrics(load_predictions(dataset),manifest(dataset)))
+                         for dataset in ['holdout','target']])
 
 
 def wilson(correct,total,confidence=.95):
@@ -99,6 +85,7 @@ def wilson(correct,total,confidence=.95):
 
 
 def scored(predictions,labels):
+    predictions=predictions.drop(columns=['label','label_status','correct'],errors='ignore')
     labels=labels[labels.label.ne('') & labels.label_status.ne('ambiguous')]
     if predictions.image_id.duplicated().any() or labels.image_id.duplicated().any():
         raise ValueError('Duplicate IDs would inflate accuracy')
@@ -133,85 +120,3 @@ def edit_distance(a,b):
     return previous[-1]
 
 
-def load_predictions(model,dataset):
-    frame=pd.read_csv(RESULTS/model/(dataset+'.csv'),dtype={'image_id':str,'prediction':str,'label':str},keep_default_na=False)
-    return frame.drop(columns=['label','label_status','correct','edits'],errors='ignore')
-
-
-def save_predictions(model,dataset,predictions):
-    labels=manifest(dataset)[['image_id','label','label_status']]
-    frame=labels.merge(predictions,on='image_id',how='left',validate='one_to_one')
-    eligible=frame.label.ne('') & frame.label_status.ne('ambiguous')
-    frame['correct']=pd.array([None]*len(frame),dtype='boolean')
-    frame.loc[eligible,'correct']=frame.loc[eligible,'error'].eq('') & frame.loc[eligible,'prediction'].eq(frame.loc[eligible,'label'])
-    destination=RESULTS/model/(dataset+'.csv');destination.parent.mkdir(parents=True,exist_ok=True)
-    frame.to_csv(destination,index=False)
-    return frame
-
-
-
-def compare(model_a,model_b,labels,dataset_a='holdout',dataset_b='holdout'):
-    a=scored(load_predictions(model_a,dataset_a),labels).set_index('image_id').correct
-    b=scored(load_predictions(model_b,dataset_b),labels).set_index('image_id').correct.reindex(a.index)
-    wins=int((a & ~b).sum());losses=int((~a & b).sum());n=len(a)
-    # Bonferroni across wins/losses makes the difference interval conservative.
-    wl,wu=wilson(wins,n,.975);ll,lu=wilson(losses,n,.975)
-    discordant=wins+losses
-    if discordant:
-        k=min(wins,losses)
-        logs=[math.lgamma(discordant+1)-math.lgamma(j+1)-math.lgamma(discordant-j+1)-discordant*math.log(2)
-              for j in range(k+1)]
-        peak=max(logs)
-        p=min(1.,2*math.exp(peak)*sum(math.exp(x-peak) for x in logs))
-    else:p=1.
-    return dict(model_a=model_a,model_b=model_b,n=n,wins=wins,losses=losses,
-                delta=(wins-losses)/n,delta_ci95_low=wl-lu,delta_ci95_high=wu-ll,mcnemar_exact_p=p)
-
-
-def all_summaries():
-    rows=[]
-    for model in LOCAL_MODELS+['gemini']:
-        for dataset in ['holdout','shared_200','target']:
-            if model=='gemini' and dataset=='holdout':continue
-            try:
-                pred=load_predictions(model,'holdout' if dataset=='shared_200' and model!='gemini' else dataset)
-            except FileNotFoundError:continue
-            labels=manifest(dataset)
-            result=metrics(pred,labels)
-            rows.append(dict(model=model,dataset=dataset,**result))
-    return pd.DataFrame(rows)
-
-
-def hypothesis_results():
-    summary=all_summaries()
-    def row(model,dataset='holdout'):
-        return summary[(summary.model==model)&(summary.dataset==dataset)].iloc[0]
-    output=[]
-    h1=row('ppocr-tiny')
-    verdict='supported' if h1.ci95_low>=.95 and h1.p95_ms<=100 else (
-        'rejected' if h1.ci95_high<.95 or h1.p95_ms>100 else 'inconclusive')
-    output.append(dict(hypothesis='H1',criterion='tiny exact>=95%, p95<=100ms',verdict=verdict,
-                       estimate=h1.exact_match,ci_low=h1.ci95_low,ci_high=h1.ci95_high))
-    configs=[('H2','ppocr-small','ppocr-tiny',.02,'holdout',True),
-             ('H3','ddddocr-beta','ppocr-small',0.,'holdout',False),
-             ('H4','crnn-base','ppocr-small',-.02,'holdout',False),
-             ('H5','conv-transformer-base','crnn-base',.02,'holdout',False),
-             ('H6','gemini','ppocr-small',-.02,'shared_200',False)]
-    paired=[]
-    for h,a,b,threshold,ds,latency in configs:
-        try:
-            result=compare(a,b,manifest(ds),ds,'holdout')
-        except FileNotFoundError:continue
-        good=result['delta_ci95_low']>=threshold
-        bad=result['delta_ci95_high']<threshold
-        if latency and row(a).p95_ms>150:bad=True;good=False
-        verdict='supported' if good else 'rejected' if bad else 'inconclusive'
-        paired.append(dict(hypothesis=h,**result))
-        output.append(dict(hypothesis=h,criterion=f'delta {a}-{b}>={threshold:.2%}',verdict=verdict,
-                           estimate=result['delta'],ci_low=result['delta_ci95_low'],ci_high=result['delta_ci95_high']))
-    if paired:
-        order=sorted(range(len(paired)),key=lambda i:paired[i]['mcnemar_exact_p']);maximum=0
-        for rank,i in enumerate(order):
-            maximum=max(maximum,min(1.,(len(paired)-rank)*paired[i]['mcnemar_exact_p']))
-            paired[i]['holm_p']=maximum
-    return pd.DataFrame(output),pd.DataFrame(paired)

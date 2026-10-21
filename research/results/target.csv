@@ -1,0 +1,10 @@
+image_id,label,label_status,model,dataset,prediction,score,error,elapsed_ms,correct
+17e2908251c9f9ce,,ambiguous,ppocr-small,target,7348UU,0.8662,,37.643199999820354,
+33ef91d464c03eb9,894412,assistant_visual,ppocr-small,target,8048,0.77286,,30.130900000131078,False
+41ada5001f1e1e88,432077,assistant_visual,ppocr-small,target,432071,0.90467,,26.472600000033708,False
+5cb6a434364bfe27,558796,assistant_visual,ppocr-small,target,558796,0.95673,,24.45269999998345,True
+70ab9785865087ef,,ambiguous,ppocr-small,target,23779年,0.88725,,32.604799999717216,
+7619f1f1b372df6d,181263,assistant_visual,ppocr-small,target,181263,0.93912,,30.902399999831687,True
+8731a1e555abd295,926325,assistant_visual,ppocr-small,target,926325,0.89507,,27.990199999749166,True
+d4c0652824fb2dfd,639125,assistant_visual,ppocr-small,target,60926,0.87681,,27.872199999819713,False
+d4d1163a8ce99293,642044,assistant_visual,ppocr-small,target,642044,0.76323,,27.639299999918876,True

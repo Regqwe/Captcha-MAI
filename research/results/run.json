@@ -1,0 +1,21 @@
+{
+  "model": "ppocr-small",
+  "init_ms": 1342.1951000000263,
+  "warmup_ms": 557.5171999998929,
+  "warmup": "blank white image, excluded from evaluation",
+  "batch_size": 1,
+  "cache_predictions": false,
+  "observed_rss_max_mb": 192.984375,
+  "rss_scope": "whole kernel sampled after each image",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "versions": {
+    "numpy": "2.5.4",
+    "pillow": "13.0.0",
+    "pandas": "3.0.6",
+    "rapidocr": "3.10.0",
+    "onnxruntime": "1.31.0"
+  },
+  "weight_sha256": "6f327246b50388f3c176ae304bd95767ea6dc0c9ae92153ef8cbe210b3c14884",
+  "holdout_manifest_sha256": "aa8b7f49c7c7fa667beabb22c080c83bad69422a99b2db114f32b5d4e419511d",
+  "timing_scope": "image open + preprocessing + inference + decoding; initialization/warmup separate"
+}

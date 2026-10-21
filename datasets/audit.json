@@ -1,0 +1,44 @@
+{
+  "dataset": "project-sloth/captcha-images",
+  "revision": "eeaf2b6ec9086645f270f7e2aaa9ea90730683de",
+  "archives": [
+    {
+      "split": "train",
+      "images": 6000,
+      "bytes": 17319828,
+      "sha256": "7a8c388a990aa5a5f04b3e2503f87ecc2a0f8da1fdb70de368298e218490eb55"
+    },
+    {
+      "split": "validation",
+      "images": 2000,
+      "bytes": 5764871,
+      "sha256": "68d339c89403682ce2844d2d94524c15afcf990c057cba055dc6a985de42ea91"
+    },
+    {
+      "split": "test",
+      "images": 2000,
+      "bytes": 5773266,
+      "sha256": "730bf94a1b857caa1de00bc7b5d9840c25bcd9767718f91ba9f8a3d5fd2a1912"
+    }
+  ],
+  "total_images": 10000,
+  "source_split_counts": {
+    "train": 6000,
+    "validation": 2000,
+    "test": 2000
+  },
+  "all_labels_six_digit_strings": true,
+  "leading_zero_labels": 966,
+  "byte_duplicates": 0,
+  "pixel_duplicates": 0,
+  "cross_split_pixel_groups": 0,
+  "excluded_test_rows": 16,
+  "holdout_images": 1984,
+  "shared_images": 200,
+  "selection_seed": 20261021,
+  "same_label_cross_split_groups": 33,
+  "shared_manifest_sha256": "675bc9b4d93369e68817412fa08a72c6e21de23c820e00e42bc30d06c7390384",
+  "original_holdout_manifest_sha256": "33fe043e8dec7b0e238c6bc81bb63c601699540b4b6c2025ad9480e21164f42b",
+  "current_holdout_manifest_sha256": "aa8b7f49c7c7fa667beabb22c080c83bad69422a99b2db114f32b5d4e419511d",
+  "layout": "Only the 1984-image evaluation holdout and nine target crops are retained; no archives or training data."
+}

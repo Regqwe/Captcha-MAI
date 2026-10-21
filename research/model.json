@@ -1,0 +1,12 @@
+{
+  "name": "PP-OCRv6 small recognition",
+  "backend": "RapidOCR 3.10.0 / ONNX Runtime 1.31.0",
+  "filename": "PP-OCRv6_rec_small.onnx",
+  "sha256": "6f327246b50388f3c176ae304bd95767ea6dc0c9ae92153ef8cbe210b3c14884",
+  "bytes": 21234383,
+  "detector": false,
+  "classifier": false,
+  "ctc": true,
+  "cpu_threads": 2,
+  "model_card": "https://huggingface.co/PaddlePaddle/PP-OCRv6_small_rec_safetensors"
+}
