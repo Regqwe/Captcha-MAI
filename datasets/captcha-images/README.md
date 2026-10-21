@@ -17,11 +17,11 @@ seed 20261021. Перечень исключённых файлов — `exclude
 Распаковка без повторного скачивания:
 
 ```powershell
-.\.venv\Scripts\python.exe scripts\prepare_benchmark.py
+.\.venv\Scripts\python.exe -X utf8 scripts/run.py prepare
 ```
 
 Изображения появятся в `data/benchmark/images/{train,validation,test}`.
-В ZIP-поставке дополнительно есть отдельный готовый к просмотру test-набор.
+Тот же holdout используется во всех пяти локальных запусках.
 
 Ведущие нули не следует открывать как числа в Excel. Python:
 `pd.read_csv(path, dtype=str, keep_default_na=False)`.

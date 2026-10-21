@@ -1,16 +1,6 @@
 {
   "checked_at": "2026-10-21",
   "models": {
-    "anuashok/ocr-captcha-v2": {
-      "revision": "a5b4c0bbb7323e64ac65f9b3a560d06c2e74df0f",
-      "license": "apache-2.0",
-      "url": "https://huggingface.co/anuashok/ocr-captcha-v2"
-    },
-    "anuashok/ocr-captcha-v3": {
-      "revision": "51581b607fa599e712555a65f1aa633fb9e22f67",
-      "license": "apache-2.0",
-      "url": "https://huggingface.co/anuashok/ocr-captcha-v3"
-    },
     "Graf-J/captcha-conv-transformer-base": {
       "revision": "1896f25517e3e9c2905db37863bc18e774759646",
       "license": "mit",
@@ -21,11 +11,6 @@
         "processing_captcha.py": "8f6e681a59ae16d08566e55ec0707ac8c692d78368a594081a38009dff92cd99"
       }
     },
-    "Graf-J/captcha-conv-transformer-finetuned": {
-      "revision": "4bc31fa679c5f627e56dfa820ea7edad8cd5981a",
-      "license": "mit",
-      "url": "https://huggingface.co/Graf-J/captcha-conv-transformer-finetuned"
-    },
     "Graf-J/captcha-crnn-base": {
       "revision": "23704b43dbf2a5d314eb2491adebc0436705afdc",
       "license": "mit",
@@ -35,63 +20,13 @@
         "modeling_captcha.py": "d406cf7e9db440e221741e90dcb4018e817013cdc77e60397631aefbdb88917a",
         "processing_captcha.py": "8f6e681a59ae16d08566e55ec0707ac8c692d78368a594081a38009dff92cd99"
       }
-    },
-    "Graf-J/captcha-crnn-finetuned": {
-      "revision": "8ca7bfadc2608b007b5cafe20a7d0c29888a5cbb",
-      "license": "mit",
-      "url": "https://huggingface.co/Graf-J/captcha-crnn-finetuned"
-    },
-    "jtrecenti/txtcaptcha-crnn": {
-      "revision": "cbdc1b9e7b758469bb5d50ed0279c1c63019d1ab",
-      "license": "mit",
-      "url": "https://huggingface.co/jtrecenti/txtcaptcha-crnn"
     }
   },
   "datasets": {
-    "AvinashRicky/CaptchaOCR-500K": {
-      "revision": "3712f65b8c6c252fa4f2c6745630c7d7b5bf630d",
-      "license": "mit",
-      "url": "https://huggingface.co/datasets/AvinashRicky/CaptchaOCR-500K"
-    },
-    "hammer888/captcha-data": {
-      "revision": "7d5f9deef407b83893ba37b2d5c20ad990213e00",
-      "license": null,
-      "url": "https://huggingface.co/datasets/hammer888/captcha-data"
-    },
-    "Hansda/captcha-dataset": {
-      "revision": "b0a413d38d1b49fd7d57d0c0c936e64ac6db41d0",
-      "license": "apache-2.0",
-      "url": "https://huggingface.co/datasets/Hansda/captcha-dataset"
-    },
-    "Knight07/Deep_Captcha": {
-      "revision": "cab6c0360058afc5c504ea6d15c324ac1b7cfe49",
-      "license": "mit",
-      "url": "https://huggingface.co/datasets/Knight07/Deep_Captcha"
-    },
     "project-sloth/captcha-images": {
       "revision": "eeaf2b6ec9086645f270f7e2aaa9ea90730683de",
       "license": "wtfpl",
       "url": "https://huggingface.co/datasets/project-sloth/captcha-images"
-    },
-    "pymlex/4-captcha": {
-      "revision": "d36ce8b0cf06f2ffcdc459482a0c94b8f8380f78",
-      "license": "gpl-3.0",
-      "url": "https://huggingface.co/datasets/pymlex/4-captcha"
-    },
-    "remiai3/synthetic-captchas-library": {
-      "revision": "782ad5ad43107e19d8f29f020d8ed51ba89a5730",
-      "license": "cc-by-4.0",
-      "url": "https://huggingface.co/datasets/remiai3/synthetic-captchas-library"
-    },
-    "szili2011/captcha-ocr-dataset": {
-      "revision": "1367fd8d544f0d51dcec9c75497329fc7e53be12",
-      "license": "apache-2.0",
-      "url": "https://huggingface.co/datasets/szili2011/captcha-ocr-dataset"
-    },
-    "yuxi5/text-captcha-data-clean": {
-      "revision": "1e1d8f0f750f44656a771790c3d80cb4aa90f755",
-      "license": null,
-      "url": "https://huggingface.co/datasets/yuxi5/text-captcha-data-clean"
     }
   }
 }

@@ -1,3 +1,5 @@
+> Поиск источников для исследования. В рабочем контуре используются только пять моделей из README; остальные карточки приведены для контекста.
+
 # Hugging Face: готовые модели и данные
 
 Проверено 21 октября 2026 года: публичный Hub API, model/dataset cards,
@@ -10,7 +12,7 @@
 **Graf-J/captcha-crnn-base и finetuned.** Обученная CNN + BiLSTM + CTC, около
 3,57 млн параметров. Небольшой размер подходит для CPU-эксперимента. Базовые веса
 обучены на hammer888/captcha-data, вариант finetuned — дополнительно на Python Captcha.
-Обе версии включены в ноутбук 02. Источники:
+Обе версии включены в исследование. Источники:
 [base](https://huggingface.co/Graf-J/captcha-crnn-base),
 [finetuned](https://huggingface.co/Graf-J/captcha-crnn-finetuned).
 
@@ -24,8 +26,8 @@
 [finetuned](https://huggingface.co/Graf-J/captcha-conv-transformer-finetuned).
 
 **anuashok/ocr-captcha-v3.** Готовый fine-tuned TrOCR, найден среди наиболее
-скачиваемых по запросу captcha. Существенно тяжелее маленьких CRNN; добавлен как
-отключённая по умолчанию опция. В карточке приведён CER около 0,01395 на данных
+скачиваемых по запросу captcha. Существенно тяжелее маленьких CRNN; рассмотрен как
+справочный кандидат; в исполняемый код не включён. В карточке приведён CER около 0,01395 на данных
 автора. Это не доля полностью правильных строк на наших изображениях.
 [Модель](https://huggingface.co/anuashok/ocr-captcha-v3).
 
@@ -36,7 +38,7 @@
 [Карточка](https://huggingface.co/jtrecenti/txtcaptcha-crnn).
 
 **PP-OCRv6 tiny/small.** Универсальные лёгкие распознаватели, не специализированные
-веса под Instagram. Добавлены как контролируемая локальная OCR-база в ноутбук 01.
+веса под Instagram. Добавлены как контролируемая локальная OCR-база в исследование.
 [Tiny](https://huggingface.co/PaddlePaddle/PP-OCRv6_tiny_rec_safetensors),
 [Small](https://huggingface.co/PaddlePaddle/PP-OCRv6_small_rec_safetensors).
 

@@ -1,0 +1,32 @@
+[
+  {
+    "notebook": "1_h1_ppocr_tiny.ipynb",
+    "status": "passed",
+    "code_cells": 5
+  },
+  {
+    "notebook": "2_h2_ppocr_small.ipynb",
+    "status": "passed",
+    "code_cells": 5
+  },
+  {
+    "notebook": "3_h3_ddddocr_beta.ipynb",
+    "status": "passed",
+    "code_cells": 5
+  },
+  {
+    "notebook": "4_h4_crnn_base.ipynb",
+    "status": "passed",
+    "code_cells": 5
+  },
+  {
+    "notebook": "5_h5_conv_transformer_base.ipynb",
+    "status": "passed",
+    "code_cells": 5
+  },
+  {
+    "notebook": "6_h6_gemini.ipynb",
+    "status": "passed",
+    "code_cells": 5
+  }
+]

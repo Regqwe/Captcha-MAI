@@ -90,20 +90,3 @@ def load_graf(repo_id):
     predict.revision = revision
     predict.parameters = sum(p.numel() for p in model.parameters())
     return predict
-
-
-def load_trocr(repo_id='anuashok/ocr-captcha-v3'):
-    """Optional heavier comparison; downloading weights can exceed 1 GB."""
-    import torch
-    from transformers import TrOCRProcessor, VisionEncoderDecoderModel
-    lock = json.loads((ROOT / 'research/hf_lock.json').read_text(encoding='utf-8'))
-    revision = lock['models'][repo_id]['revision']
-    processor = TrOCRProcessor.from_pretrained(repo_id,revision=revision,trust_remote_code=False,token=False)
-    model = VisionEncoderDecoderModel.from_pretrained(repo_id,revision=revision,use_safetensors=True,
-                                                     trust_remote_code=False,token=False).eval()
-    def predict(image):
-        values = processor(images=image.convert('RGB'),return_tensors='pt').pixel_values
-        with torch.inference_mode():
-            ids = model.generate(values,max_new_tokens=24,num_beams=1)
-        return processor.batch_decode(ids,skip_special_tokens=True)[0].strip(), None
-    return predict

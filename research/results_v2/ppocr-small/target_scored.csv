@@ -1,8 +1,0 @@
-image_id,label,model,dataset,prediction,score,elapsed_ms,error,error_detail,correct,edits
-33ef91d464c03eb9,894412,ppocr-small,target,8048,0.77286,30.277099999693746,,,False,4
-41ada5001f1e1e88,432077,ppocr-small,target,432071,0.90467,31.035800000609015,,,False,1
-5cb6a434364bfe27,558796,ppocr-small,target,558796,0.95673,28.295099999922968,,,True,0
-7619f1f1b372df6d,181263,ppocr-small,target,181263,0.93912,33.1796000000395,,,True,0
-8731a1e555abd295,926325,ppocr-small,target,926325,0.89507,27.79129999998986,,,True,0
-d4c0652824fb2dfd,639125,ppocr-small,target,60926,0.87681,29.48160000050848,,,False,3
-d4d1163a8ce99293,642044,ppocr-small,target,642044,0.76323,27.957100000094215,,,True,0

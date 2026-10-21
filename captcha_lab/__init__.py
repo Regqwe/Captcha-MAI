@@ -1,1 +1,1 @@
-"""Offline experiments on labeled or unlabeled images."""
+"""Offline recognition and evaluation on a frozen labeled benchmark."""

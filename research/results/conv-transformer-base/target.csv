@@ -1,0 +1,10 @@
+image_id,label,label_status,model,dataset,prediction,score,elapsed_ms,error,error_detail,correct
+17e2908251c9f9ce,,ambiguous,conv-transformer-base,target,786,0.6914601425329844,49.30659999990894,,,
+33ef91d464c03eb9,894412,assistant_visual,conv-transformer-base,target,8D4z2,0.6680382311344146,30.005600000095,,,False
+41ada5001f1e1e88,432077,assistant_visual,conv-transformer-base,target,4267,0.8518564105033875,31.29199999989396,,,False
+5cb6a434364bfe27,558796,assistant_visual,conv-transformer-base,target,55878,0.924050486087799,35.6546000000435,,,False
+70ab9785865087ef,,ambiguous,conv-transformer-base,target,28f,0.8824602365493774,33.06039999984023,,,
+7619f1f1b372df6d,181263,assistant_visual,conv-transformer-base,target,112e3,0.7858909726142883,34.314799999947354,,,False
+8731a1e555abd295,926325,assistant_visual,conv-transformer-base,target,g263,0.9587235152721405,41.885100000172315,,,False
+d4c0652824fb2dfd,639125,assistant_visual,conv-transformer-base,target,6bi2s,0.7728377103805542,33.331200000020544,,,False
+d4d1163a8ce99293,642044,assistant_visual,conv-transformer-base,target,6e,0.8271939754486084,32.87940000018352,,,False
