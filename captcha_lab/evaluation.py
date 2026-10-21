@@ -118,5 +118,3 @@ def edit_distance(a,b):
             current.append(min(current[-1]+1,previous[j]+1,previous[j-1]+(ca!=cb)))
         previous=current
     return previous[-1]
-
-
