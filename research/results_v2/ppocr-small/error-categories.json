@@ -1,0 +1,7 @@
+{
+  "all_wrong": 108,
+  "punctuation_only": 30,
+  "leading_zero_only": 8,
+  "wrong_length": 60,
+  "digit_only_six_char_wrong": 44
+}

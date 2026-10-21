@@ -1,0 +1,10 @@
+{
+  "primary_attempts": 209,
+  "completed_logged_serial_attempts": 58,
+  "possible_unlogged_inflight_at_stop": 1,
+  "primary_model": "gemini-3.8-flash",
+  "serial_status": "stopped_at_user_request",
+  "billing_total": "unknown; logs are not a provider invoice",
+  "previous_pilot_excluded": true,
+  "new_paid_calls_disabled": true
+}

@@ -1,0 +1,10 @@
+{
+  "model": "gemini-3.8-flash",
+  "prompt": "Transcribe only the characters in this image, in order. Return just the string, preserving case and leading zeros. If unreadable, return exactly UNREADABLE.",
+  "max_output_tokens": 1024,
+  "temperature": 0,
+  "concurrency": 4,
+  "retries": 0,
+  "proxy_enabled": true,
+  "network_timing": "request worker duration; queue wait excluded"
+}

@@ -1,0 +1,8 @@
+image_id,label,model,dataset,prediction,score,error,error_detail,model_version,input_tokens,output_tokens,total_tokens,elapsed_ms,correct,edits
+33ef91d464c03eb9,894412,gemini,target,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5324.518800000078,False,6
+41ada5001f1e1e88,432077,gemini,target,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5320.628199999192,False,6
+5cb6a434364bfe27,558796,gemini,target,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5325.594700001602,False,6
+7619f1f1b372df6d,181263,gemini,target,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5332.900499999596,False,6
+8731a1e555abd295,926325,gemini,target,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5330.072599999767,False,6
+d4c0652824fb2dfd,639125,gemini,target,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5330.634400001145,False,6
+d4d1163a8ce99293,642044,gemini,target,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5328.256099999635,False,6

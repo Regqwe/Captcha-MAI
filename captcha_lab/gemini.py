@@ -1,15 +1,13 @@
 """Small REST client. Secrets never appear in repr, URLs, saved results or exceptions."""
-import base64
 import os
 import re
-import time
 from dataclasses import dataclass, field
 from urllib.parse import urlsplit
 
 import requests
 from dotenv import load_dotenv
 
-from .data import ROOT, png_bytes
+from .data import ROOT
 
 
 class GeminiError(RuntimeError):
@@ -47,6 +45,8 @@ class GeminiClient:
         return f'GeminiClient(model={self.model!r}, proxy_enabled={bool(self.proxy_url)})'
 
     def _request(self, method, endpoint, payload=None):
+        if method.upper() != 'GET':
+            raise GeminiError('Paid Gemini calls are disabled at the user request. Model and spending limit must be reviewed before re-enabling.')
         try:
             with requests.Session() as session:
                 session.trust_env = False
@@ -80,28 +80,10 @@ class GeminiClient:
                 return result
         raise GeminiError('Unexpected model-list pagination limit')
 
-    def generate(self, text, image=None):
-        parts = [{'text': text}]
-        if image is not None:
-            parts.append({'inlineData': {'mimeType': 'image/png',
-                                        'data': base64.b64encode(png_bytes(image)).decode('ascii')}})
-        payload = {'contents': [{'parts': parts}],
-                   'generationConfig': {'temperature': 0, 'maxOutputTokens': 256}}
-        start = time.perf_counter()
-        data = self._request('POST', f'models/{self.model}:generateContent', payload)
-        candidates = data.get('candidates', [])
-        if not candidates:
-            raise GeminiError('No candidate returned; inspect account/model policy outside this notebook')
-        candidate = candidates[0]
-        if candidate.get('finishReason') not in {None, 'STOP'}:
-            reason = candidate.get('finishReason')
-            reason = reason if re.fullmatch(r'[A-Z_]+', str(reason)) else 'UNKNOWN'
-            raise GeminiError('Response did not finish normally: ' + reason)
-        answer = ''.join(p.get('text','') for p in candidate.get('content',{}).get('parts',[]) if not p.get('thought'))
-        if not answer.strip():
-            raise GeminiError('Empty response')
-        return dict(text=answer.strip(), elapsed_ms=(time.perf_counter()-start)*1000,
-                    model_version=data.get('modelVersion', self.model), usage=data.get('usageMetadata',{}))
+    def generate(self, text, image=None, *, max_output_tokens=256):
+        # A configured API key is not permission to spend money.
+        # This also blocks subclasses overriding the HTTP transport.
+        raise GeminiError('Paid Gemini calls are disabled at the user request. No network request was sent.')
 
     def recognize(self, image):
         result = self.generate('Transcribe only the characters in this image, in order. '

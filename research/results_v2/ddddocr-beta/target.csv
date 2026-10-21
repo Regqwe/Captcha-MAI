@@ -1,0 +1,10 @@
+model,dataset,image_id,prediction,score,elapsed_ms,error,error_detail
+ddddocr-beta,target,17e2908251c9f9ce,T3486,,38.07330000017828,,
+ddddocr-beta,target,33ef91d464c03eb9,894M27,,37.629000000379165,,
+ddddocr-beta,target,41ada5001f1e1e88,432oh,,36.04429999995773,,
+ddddocr-beta,target,5cb6a434364bfe27,558796,,36.961399999199784,,
+ddddocr-beta,target,70ab9785865087ef,23797,,35.03270000055636,,
+ddddocr-beta,target,7619f1f1b372df6d,1812E3,,49.130999999761116,,
+ddddocr-beta,target,8731a1e555abd295,926325,,59.00330000076792,,
+ddddocr-beta,target,d4c0652824fb2dfd,699f2,,39.27300000032119,,
+ddddocr-beta,target,d4d1163a8ce99293,6420M,,36.32770000058372,,

@@ -1,0 +1,20 @@
+{
+  "model": "crnn-base",
+  "init_ms": 19891.520000000128,
+  "warmup_ms": 197.2059999998237,
+  "observed_rss_max_mb": 298.90625,
+  "rss_scope": "whole kernel, sampled after each image; not isolated weight memory",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "versions": {
+    "numpy": "2.5.4",
+    "pillow": "13.0.0",
+    "onnxruntime": "1.31.0",
+    "rapidocr": "3.10.0",
+    "ddddocr": "1.6.1",
+    "torch": "2.14.1+cpu"
+  },
+  "parameters": 3570943,
+  "revision": "23704b43dbf2a5d314eb2491adebc0436705afdc",
+  "batch_size": 1,
+  "cache_predictions": false
+}

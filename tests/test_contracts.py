@@ -37,7 +37,7 @@ class SecretsTests(unittest.TestCase):
         self.assertNotIn('TEST_SECRET',repr(c))
         self.assertNotIn('TEST_PASSWORD',repr(c))
 
-    def test_network_error_is_redacted_and_has_no_direct_retry(self):
+    def test_paid_generation_is_blocked_before_network(self):
         c=GeminiClient('TEST_SECRET','socks5h://user:TEST_PASSWORD@127.0.0.1:1')
         with patch('requests.Session') as constructor:
             session=constructor.return_value.__enter__.return_value
@@ -45,8 +45,14 @@ class SecretsTests(unittest.TestCase):
             with self.assertRaises(GeminiError) as caught:c.generate('test')
             self.assertNotIn('TEST_SECRET',str(caught.exception))
             self.assertNotIn('TEST_PASSWORD',str(caught.exception))
-            self.assertEqual(session.request.call_count,1)
-            self.assertFalse(session.trust_env)
+            self.assertEqual(session.request.call_count,0)
+            constructor.assert_not_called()
+
+    def test_direct_post_cannot_bypass_stop(self):
+        c=GeminiClient('TEST_SECRET')
+        with patch('requests.Session') as constructor:
+            with self.assertRaises(GeminiError):c._request('POST','models/test:generateContent',{})
+            constructor.assert_not_called()
 
 
 if __name__=='__main__':unittest.main()

@@ -1,0 +1,8 @@
+image_id,label,model,dataset,prediction,score,elapsed_ms,error,error_detail,correct,edits
+33ef91d464c03eb9,894412,ddddocr-beta,target,894M27,,37.629000000379165,,,False,3
+41ada5001f1e1e88,432077,ddddocr-beta,target,432oh,,36.04429999995773,,,False,3
+5cb6a434364bfe27,558796,ddddocr-beta,target,558796,,36.961399999199784,,,True,0
+7619f1f1b372df6d,181263,ddddocr-beta,target,1812E3,,49.130999999761116,,,False,1
+8731a1e555abd295,926325,ddddocr-beta,target,926325,,59.00330000076792,,,True,0
+d4c0652824fb2dfd,639125,ddddocr-beta,target,699f2,,39.27300000032119,,,False,3
+d4d1163a8ce99293,642044,ddddocr-beta,target,6420M,,36.32770000058372,,,False,2

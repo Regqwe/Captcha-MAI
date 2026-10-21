@@ -1,0 +1,201 @@
+image_id,model,dataset,prediction,score,error,error_detail,model_version,input_tokens,output_tokens,total_tokens,elapsed_ms
+test_01e828220fa7d238b62f51fbdc47409d,gemini,shared_200,\70370,,GeminiError,Unexpected transcription format,gemini-3.8-flash,1089,6,2077,20210.067599999093
+test_020a007c253ce7d1c28b683e15d7e83a,gemini,shared_200,443368,,,,gemini-3.8-flash,1089,6,1315,17490.547700001116
+test_034e8aac2ba9b9113823c98b4907b0b1,gemini,shared_200,343212,,,,gemini-3.8-flash,1089,6,1263,13798.29299999983
+test_03727fc2067743a2ba7e9fefc0e2f33b,gemini,shared_200,968856,,,,gemini-3.8-flash,1089,6,2078,19628.890399999364
+test_040eb6388a6d6bf5fd5e7f6c9abbb0b3,gemini,shared_200,338577,,,,gemini-3.8-flash,1089,6,2074,15659.444300001269
+test_04e09ce988726e1cb165a646aeb34d4e,gemini,shared_200,345475,,,,gemini-3.8-flash,1089,5,1499,10041.356599998835
+test_06696cbb2c68f7d23402e5b6a0639a72,gemini,shared_200,531883,,,,gemini-3.8-flash,1089,6,1811,12495.255899999393
+test_084df233edc69478564fa07cd73d20d1,gemini,shared_200,020936,,,,gemini-3.8-flash,1089,6,1483,8596.8455000002
+test_09e1357fae096888bb3b2325e29a79ea,gemini,shared_200,577308,,,,gemini-3.8-flash,1089,6,1265,8993.069500000274
+test_0b071367e3cc92c8dd47d57bd81d8344,gemini,shared_200,180332,,,,gemini-3.8-flash,1089,6,1289,9056.003800000326
+test_0b84f116201e45db20ff1f0679382d18,gemini,shared_200,370t91,,,,gemini-3.8-flash,1089,6,2075,17615.549099999043
+test_0cba03d055ab5d61350e20cfd5c536e2,gemini,shared_200,785003,,,,gemini-3.8-flash,1089,6,1503,13315.339600001607
+test_0d4781bb62f5e76ca86392c3b01e2ec4,gemini,shared_200,863860,,,,gemini-3.8-flash,1089,6,1257,17920.44100000021
+test_0d49581a2b0a02081e5f5c540d6a77a6,gemini,shared_200,103791,,,,gemini-3.8-flash,1089,5,1467,9414.504799999122
+test_0e73b6087ace5c3a0febc69560894a52,gemini,shared_200,229208,,,,gemini-3.8-flash,1089,6,1351,9108.664899998985
+test_12a182abc132f9f902ddfad774bee7b8,gemini,shared_200,757446,,,,gemini-3.8-flash,1089,6,1290,8013.461099999404
+test_15860b68f68ff2af174858c94079320d,gemini,shared_200,633465,,,,gemini-3.8-flash,1089,6,1250,10768.89680000022
+test_15ef4f6fb7187b2f48ca154d30b1625d,gemini,shared_200,682493,,,,gemini-3.8-flash,1089,5,1307,10868.549699998766
+test_15f63153cb7f4efcb6fdce76f2876803,gemini,shared_200,842879,,,,gemini-3.8-flash,1089,6,1269,11729.31570000037
+test_16501f3a28a488bbb98536fac03cc8dd,gemini,shared_200,334855,,,,gemini-3.8-flash,1089,6,1707,11525.937400001567
+test_16d54e43104faf42f3db982723f8c26b,gemini,shared_200,996084,,,,gemini-3.8-flash,1089,6,1401,14376.838800000769
+test_1948107c47d3a142192d72c2adb66b23,gemini,shared_200,584764,,,,gemini-3.8-flash,1089,6,1282,9201.055099998484
+test_19a47afc7cb0b2373fdabd2d786f41d3,gemini,shared_200,283321,,,,gemini-3.8-flash,1089,5,1227,9554.163099999641
+test_1a1756120239b0c399fb01ec7738291d,gemini,shared_200,498998,,,,gemini-3.8-flash,1089,6,2074,15581.316900001184
+test_1b692807b54076d2a334baba1e3d13f6,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,18155.580599999666
+test_1b9bf63e4853e1151ad5aa8012c3af58,gemini,shared_200,616177,,,,gemini-3.8-flash,1089,6,1402,11265.496899999562
+test_1c45fa5a14aa75074a6404debfcf219d,gemini,shared_200,802086,,,,gemini-3.8-flash,1089,6,1329,11584.898099999918
+test_1c4f56122de4adf7c343a6c1cc030399,gemini,shared_200,819883,,,,gemini-3.8-flash,1089,6,2078,19889.919100000043
+test_1cd84cd89556cb5edc7c6941871cfceb,gemini,shared_200,225958,,,,gemini-3.8-flash,1089,6,1386,8189.303200000722
+test_1cdbeb241d77369034160d846523f0a9,gemini,shared_200,938734,,,,gemini-3.8-flash,1089,6,2075,18264.435400000366
+test_1f7e32d8975c46e0a34a5db430bbb23f,gemini,shared_200,927479,,,,gemini-3.8-flash,1089,6,1522,31548.802400000568
+test_1fa96afa804c7c9a7b4da7a7d199695a,gemini,shared_200,853804,,,,gemini-3.8-flash,1089,6,1393,11812.477399998897
+test_2268be0ab967abe23db6118ee62abb4f,gemini,shared_200,253824,,,,gemini-3.8-flash,1089,6,1398,21685.44000000111
+test_234b3632645309681984d360d33069aa,gemini,shared_200,308945,,,,gemini-3.8-flash,1089,6,1285,18113.06979999972
+test_25d8e296c55358da96c4d5914e1795ed,gemini,shared_200,696463,,,,gemini-3.8-flash,1089,6,1328,22899.589799999376
+test_28c203add9b79d13eb82b67bcc5f2eb6,gemini,shared_200,257615,,,,gemini-3.8-flash,1089,6,2076,18127.3052000015
+test_2b7ac482ecd698adeedb9c94b7cce0c0,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,18023.694100000284
+test_2c5466352b8c8d10f19d2bf8329323ec,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,15010.967600001095
+test_2dedbb6b79670d3d999c58e62c95a7b6,gemini,shared_200,330214,,,,gemini-3.8-flash,1089,6,1238,13825.847399999475
+test_2e3e8cdc5d86ec892cf35fb3681d2c09,gemini,shared_200,494400,,,,gemini-3.8-flash,1089,6,1226,21619.54270000024
+test_2e87cbe64756a421af540d5cbaa0e26d,gemini,shared_200,082221,,,,gemini-3.8-flash,1089,6,1317,8908.56100000019
+test_30408b0cbf13fb2b7e70c74332962e53,gemini,shared_200,996837,,,,gemini-3.8-flash,1089,6,1471,10035.005200001251
+test_3071e1b471792e3eca2dd3d394e5f588,gemini,shared_200,664526,,,,gemini-3.8-flash,1089,6,1312,12809.858700000404
+test_3109dd415248747d9c0e3ef7a0e05616,gemini,shared_200,3661.19,,GeminiError,Unexpected transcription format,gemini-3.8-flash,1089,7,2076,19420.50139999992
+test_318787573815b2e60aac297ad0e5fd61,gemini,shared_200,289765,,,,gemini-3.8-flash,1089,6,2040,18738.842699998713
+test_32adf62c14fbacf10eca6683053bc6ef,gemini,shared_200,171053,,,,gemini-3.8-flash,1089,6,1597,19342.332799998985
+test_33f05c728fec3f87ff973bca587aed68,gemini,shared_200,816319,,,,gemini-3.8-flash,1089,5,1391,12236.898299999666
+test_34032aba3c4519af9be98a5001c08aad,gemini,shared_200,299358,,,,gemini-3.8-flash,1089,6,2077,15350.339599999643
+test_3409459a478fa937f1bc084f15dd4060,gemini,shared_200,555995,,,,gemini-3.8-flash,1089,6,1818,12556.023299999651
+test_343d8d061eac5969324c55347fd89222,gemini,shared_200,379827,,,,gemini-3.8-flash,1089,6,1260,12644.496200000503
+test_370357d152c3669cfadbe290948e93b2,gemini,shared_200,110590,,,,gemini-3.8-flash,1089,6,1995,17013.707899999645
+test_39ae230078a3c1840a35e1abf0a664ef,gemini,shared_200,049206,,,,gemini-3.8-flash,1089,6,1264,10078.4410999986
+test_3b181997b54ad1fdd39a98e905a6f2e3,gemini,shared_200,203999,,,,gemini-3.8-flash,1089,6,1872,14891.258099998595
+test_3ba1ee92327f9732fee442ab37adb9a0,gemini,shared_200,456398,,,,gemini-3.8-flash,1089,6,2075,16178.934200001095
+test_3e0fb99b324cfcc590e55a6e359b5b99,gemini,shared_200,718523,,,,gemini-3.8-flash,1089,6,1287,7155.056499999773
+test_3ea9671dd6d59e3a182e6dba6b21f107,gemini,shared_200,807938,,,,gemini-3.8-flash,1089,6,1432,9518.569600000774
+test_3ecd7b89486575e1dc4b81397db49ad3,gemini,shared_200,852142,,,,gemini-3.8-flash,1089,6,1427,14742.933499999708
+test_420e7b32e9cdb58d6caefafdafb0f643,gemini,shared_200,561712,,,,gemini-3.8-flash,1089,6,1616,15667.595699998856
+test_451ad4c40684759845d0567acecd35a7,gemini,shared_200,971912,,,,gemini-3.8-flash,1089,6,2078,15984.505000000354
+test_47b377417a90a57bcc6697e6639d55c6,gemini,shared_200,447606,,,,gemini-3.8-flash,1089,6,1349,8084.548099999665
+test_483b025b3287be4a53effb7770c8de5b,gemini,shared_200,391642,,,,gemini-3.8-flash,1089,6,1323,7577.797800000553
+test_4921a7acef35605b01f4ab050c28ce81,gemini,shared_200,853435,,,,gemini-3.8-flash,1089,6,1498,14454.445100000157
+test_497d271e44718eb2bdeed0bd632e60da,gemini,shared_200,463517,,,,gemini-3.8-flash,1089,5,1467,10041.414000001168
+test_4b0d3bcfb8598bd5645a55c567560953,gemini,shared_200,110475,,,,gemini-3.8-flash,1089,6,1309,9817.11340000038
+test_4b7fcf8c269019a76af46030e42ee1fd,gemini,shared_200,944354,,,,gemini-3.8-flash,1089,6,1462,11153.304299999945
+test_4b93d7d644a56b4fbb600cf7d44e034e,gemini,shared_200,326396,,,,gemini-3.8-flash,1089,6,2074,14965.902399999322
+test_4b9faabb797c45db5aca456ccf3bd3d0,gemini,shared_200,383589,,,,gemini-3.8-flash,1089,6,2076,13728.008699999918
+test_4c8f58759d21ca561ed3d8b50cff1b5c,gemini,shared_200,402659,,,,gemini-3.8-flash,1089,6,1288,7469.60499999841
+test_501f88eace6e283938f3e33ea3b067ef,gemini,shared_200,437337,,,,gemini-3.8-flash,1089,6,2074,16392.191099999764
+test_51c03417f5f1ac56a9a371528443b9fa,gemini,shared_200,420412,,,,gemini-3.8-flash,1089,6,1653,15042.739299999084
+test_5359c8e55de4d572b6d9bc6d404fe77b,gemini,shared_200,631052,,,,gemini-3.8-flash,1089,5,1238,8282.360499999413
+test_545d75d6a86a5cb75e049ee82909f4a0,gemini,shared_200,274751,,,,gemini-3.8-flash,1089,6,1439,9623.531199998979
+test_55ccb1141570d434007ec632d8ec01b3,gemini,shared_200,425115,,,,gemini-3.8-flash,1089,6,1307,7722.195699998338
+test_565b0d38fdb1919eb2d73d5f4376377a,gemini,shared_200,575553,,,,gemini-3.8-flash,1089,6,2077,16653.46429999954
+test_571357d44ecf15c9c6b50395337138aa,gemini,shared_200,341929,,,,gemini-3.8-flash,1089,6,1498,14850.309999999808
+test_5727443d72431b3481d35d7bd49a60b2,gemini,shared_200,346992,,,,gemini-3.8-flash,1089,6,1733,19352.551800000583
+test_573475807794eab47a664e8713a9f6bc,gemini,shared_200,696084,,,,gemini-3.8-flash,1089,6,1345,9171.142600000167
+test_573e83a9bf505a42dd2e3d11cdbb46ad,gemini,shared_200,523200,,,,gemini-3.8-flash,1089,5,1399,10877.853800000594
+test_581cd36d8d4dc60b3e06a57e7987dc5c,gemini,shared_200,759685,,,,gemini-3.8-flash,1089,6,1334,20208.194699998785
+test_5bb1b684efe4b911ed38b16d5f63a139,gemini,shared_200,586780,,,,gemini-3.8-flash,1089,5,1307,9227.866300001551
+test_5ca83887857f79e8454600aa2dfadb1f,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,15010.464300001331
+test_5eb7bbbfb89506073c2b18a0fe526e4b,gemini,shared_200,848454,,,,gemini-3.8-flash,1089,6,2079,21585.207100000844
+test_6276b657bc48e5d8e5f98711ffb4edf6,gemini,shared_200,983684,,,,gemini-3.8-flash,1089,6,1326,8897.72880000055
+test_62a278cd6a61c9c42aa87e0d61d42638,gemini,shared_200,225986,,,,gemini-3.8-flash,1089,6,1433,10144.218999999794
+test_64bc23ebcdb9d603611345e7badd194a,gemini,shared_200,355198,,,,gemini-3.8-flash,1089,6,2076,13704.671199999211
+test_64e2d1e35976c004cebc3addfca26b1a,gemini,shared_200,569504,,,,gemini-3.8-flash,1089,6,1329,7928.516199999649
+test_668275f945f6d3cfe9b5cb35955ac40a,gemini,shared_200,522114,,,,gemini-3.8-flash,1089,6,1587,12285.991299999296
+test_67450a6e6c249aa7f562ef2a14274c4b,gemini,shared_200,925035,,,,gemini-3.8-flash,1089,6,1408,9219.344799999817
+test_68962dcfcc89fe4e3c7d6897174a572d,gemini,shared_200,619142,,,,gemini-3.8-flash,1089,6,1525,11464.21670000018
+test_690fc795be65f5d4ef057629c456f261,gemini,shared_200,860469,,,,gemini-3.8-flash,1089,6,1326,9738.497500000449
+test_6c058c26bfb71f053ba15874bc35d7f6,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,16934.9919999986
+test_6d3aff834435db6722280ded32983f13,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5309.176099999604
+test_6d51c65c99b67e131fad5ca2a7ce8736,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5308.388999999806
+test_6f7a308ce712a0a250d22fc20b135716,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5309.1438000010385
+test_6fecdede4821c16c22710cc0183d877e,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5310.068300001149
+test_7182051706e6c3f16012177f7e55451e,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5309.712899999795
+test_7568993015fef793656234608ae50d65,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5309.519300000829
+test_763394be3748e214d0116aa3f4369e65,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5311.508999999205
+test_775bcbb87808a3b2b9d49bd34392ed0e,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5309.852899999896
+test_7cd5c878bbb33a4b6d4c432582ad78b0,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5311.2333999997645
+test_7f1504365901b44623e47f58b741930f,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5314.793699999427
+test_7fcde9b2a784294258c79b8fb0a637be,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5310.954499998843
+test_80d8bc7e86c1fdb8087b43428b766a35,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5310.586800000237
+test_8131f911167bc266c4bee8bec8e67256,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5310.170199998538
+test_825af34ff98df7cd688cdd1f0a534ac0,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5309.417999998914
+test_8741a7b65a98bc4d305ebbcf83dd0063,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5309.81679999968
+test_87b2977df70dc95b866b7f3c120993af,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5310.844300000099
+test_87d6f0e64c426a498b752bb21089d0a2,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5311.5254000003915
+test_8ae4e369d17dbbdeed9d47d8f43bafde,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5308.329199999207
+test_8b9009e5e40470ae34a00630e434b43b,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5308.962699999029
+test_8bfd47a765640bae91a23ab141ef2fc6,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5308.716900000945
+test_8c2f0f2fafef11a23615136e89b9caa7,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5312.035200000537
+test_8d187352c75d1ec3b43d8e25f562b47f,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5312.133600000379
+test_912e754c56781a7aa2dafc62ddedec56,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5311.096199999156
+test_915df91faa7fee6ce313b0b3b66fddf7,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5312.653999999384
+test_9280370f6c79af2ed31a14df51574d68,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5309.720199998992
+test_943273c9cf6d0d128640f6f2b247f0e9,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5312.527299998692
+test_94a1aa53ad4ef539e0c6303bb52c7af4,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5312.07650000033
+test_961b97a1bab231e94c9b196bef8b910b,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5309.942500000034
+test_98c8d8da68cfa9e933e0a02538170f49,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5310.417799999414
+test_9a8ad4e7b7f6ab2e2a0a1b05e1f33ec5,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5315.956500000539
+test_9e229d11197f2e629995c09d75135d79,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5311.61129999964
+test_9ed8a8d36dbf201aaf5a2b047f68ad53,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5309.4086999990395
+test_a1bf2ee2c1c675e3af7be4e78a3bc6ad,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5312.157399999705
+test_a2e2ffc714ed1ad9456f1686b4ad2d23,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5313.522099999318
+test_a4ef4acc1e36d3335a3a0e493e360c63,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5312.830799999574
+test_a50bf50f3373d23150a74a55ae755c50,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5311.116299999412
+test_a6efb6e9d4e63c5556cd8863fca8fd65,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5312.089499999274
+test_a75d1df8d2663cc1fd88b4cca172b6bb,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5314.91079999978
+test_a7a5bdd1470cac990ea15d35e2cd0345,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5313.637700000982
+test_a7c0fd69d25fc3e29da3e9bbd9f49a16,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5312.105999999403
+test_a85b82406d4d6ab779a6e803ef30cfa8,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5313.384899998709
+test_aaaf0920e12021c3d7bce64c5693d0e6,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5313.568100000339
+test_aabfcb0f02887cb0a84331f191519d6b,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5315.195600000152
+test_aec4e680c4f580fd372db3b80fe80eb4,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5311.215700001412
+test_af758b1e6c1913345b916196bf33bc93,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5313.848599998892
+test_b044fdd96e9acb5c7bb20a7a9232edfd,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5313.895200000843
+test_b148e514e3da3e9d8b634e7a5ad7c60c,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5311.603599999216
+test_b2dfb08d6957d3a65ac2d01e11cfca34,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5312.646099999256
+test_b3bb8298e984b16f42a09feb13f08e71,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5312.895700000809
+test_b4687d39c121052a30bd7c90970cd248,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5414.000700000543
+test_b7aec472b658275c05fe71781ef316d5,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5310.682399998768
+test_b7d4835fd0fa76bbe1d0dceb23e897e6,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5312.069800000245
+test_b854e142d9cd2efcff987c9edd3bdb17,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5315.770999999586
+test_bb31f145a5e18a8d6ec238f3b015d246,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5313.700700000481
+test_bc94f5fb860c477ebc4af6ae5a3d5703,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5312.326100000064
+test_bffb3803e04f03a610803d936e404bb5,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5312.205099999119
+test_bffcadc14c481f9eb8dd518a14089f58,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5312.209499999881
+test_c102cb6f87996823f75b3608c2c6e69a,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5314.1851000000315
+test_c15b0e70378b0adb0396c7837e27ff8f,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5314.615200000844
+test_c1614e5baa0b5e98de4f2cd534640b0a,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5309.858200000235
+test_c20de002f6550ddac313a71d7915c46f,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5309.175799999139
+test_c2bf081315bad29ad7f56936cc10a582,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5311.127200000556
+test_c714dc1a0a8c35d05f332870de69e1ac,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5311.930599998959
+test_c9f1edf55686b417c042185a8e769754,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5310.867700000017
+test_caf3fbba60e80dd85aec744fad482e89,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5315.717900000891
+test_cb12aca30204b686d647d06713d3694c,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5310.854600000312
+test_cbf661521004839b0004c516544d3ada,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5314.23630000063
+test_ccba912b478da926829d58da6736b602,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5312.8612999989855
+test_ce9de8262bd7e1c85bf75c82b530454f,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5311.843299999964
+test_cf0be29b55b25830f529efca9515c712,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5313.987999999881
+test_cf6b91542c53802e878e30e858f4a3d6,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5314.042200001495
+test_cffc84d8e489ec7742b6092bab272803,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5309.835399999429
+test_d0139d563149058a4c19dcaf8bd47575,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5312.321199999133
+test_d22b52158f41076cd3245d02a4abd824,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5315.596000000369
+test_d55fb26c0db7af759e8a9acb9b556123,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5311.470000000554
+test_d56ec0d8e39b93db9d2669cedf741fdc,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5312.8200999999535
+test_d5c5d14133936083d50309f576397402,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5310.35570000131
+test_d5cbd02b022bc7a8bbad69dd8f6db8e5,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5310.092800000348
+test_d727405f20b2d4169d9f30d6ec088a78,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5313.524699999107
+test_d977c4fab0f3afdbfe1b37e25f8d349e,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5311.6272999996
+test_d9db249a5f22caf62c4240797449efbf,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5312.3692000008305
+test_d9ef341d857d6792f1b029730d17a527,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5319.042899998749
+test_deda6c08d8202b6a7c5e13fc6b59e98f,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5311.506199999712
+test_e1315152d855e1a779262a16cbfaea51,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5309.238600000754
+test_e1e627605643907cb201ca97356b7588,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5309.986800000843
+test_e4c3f585adf4bb29d5c2825b5ecb4008,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5309.872600000745
+test_e5a10326629d1bdc4adf04b5063a07e0,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5310.402299999623
+test_e74eb03516ef5abbb7b80fc8550b98c3,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5313.473099999101
+test_e7af50f8d3eb49c684dc2a2c2d2923d5,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5310.438099999374
+test_ec5676b39d29bbe5d12679fd7bf66f18,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5312.745100000029
+test_ec63e570ca5d991d17898686ffb25528,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5310.791799998697
+test_ec7393790cd870ba0a270c6ad62de76e,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5311.388299998725
+test_ee1912cb6077d6d6a81b0638c1805cc2,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5311.555099999168
+test_ee99ae270aa8cf42b45b7aced8e2932d,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5311.0560000004625
+test_ef8dca6356eece2ebd1fcf6c1d469125,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5312.493899999026
+test_f01ee1285cca9cd1b8fc39c3289cf27f,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5310.4352000009385
+test_f380da8a55009962d4e018a8a1ed0e07,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5313.4463999995205
+test_f43e3a50f01f405db1507e3ac02a869f,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5314.081700000315
+test_f48a1d8d1bfb96118dce00a5c99334b3,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5309.1836999992665
+test_f574c390e3ebffa7995010b1673f2937,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5316.418399999748
+test_f6dce6311f53759a9069db26855113c4,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5313.960900000893
+test_f7e1b8edecab9c649c1d1f1ce738941d,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5311.334000001807
+test_f800624c51fc19f46438b5ca1460715d,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5315.522299999429
+test_f84028435a9667f6f48012ef659a39c5,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5315.131200000906
+test_f841433912779c59a0b67e5820114717,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5313.489299998764
+test_f8766d162cd77e9fd5b7765cf09da7e5,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5313.004999999976
+test_f915b1268d74398b220b3856fe48a6e1,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5312.413400000878
+test_f954bc6a044dafe1545d5ea3a16c4ef9,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5313.8801000004605
+test_ff5c63e9fdeafad5adbd0a8b420318f0,gemini,shared_200,,,GeminiError,Network/proxy connection failed; no direct fallback attempted,,0,0,0,5311.174899999969

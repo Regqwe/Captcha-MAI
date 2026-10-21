@@ -17,7 +17,8 @@ def main():
     target=ROOT/'notebooks/executed';target.mkdir(exist_ok=True)
     statuses=[]
     for path in sorted((ROOT/'notebooks').glob(args.pattern)):
-        if args.skip_api and path.name.startswith('03_'):
+        if 'gemini' in path.name.lower() or path.name.startswith('03_'):
+            print('SKIP API notebook (paid execution disabled)',path.name,flush=True)
             continue
         print('EXECUTE',path.name,flush=True)
         notebook=nbformat.read(path,as_version=4)

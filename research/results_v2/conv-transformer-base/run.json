@@ -1,0 +1,20 @@
+{
+  "model": "conv-transformer-base",
+  "init_ms": 4702.913500001159,
+  "warmup_ms": 83.33850000053644,
+  "observed_rss_max_mb": 356.35546875,
+  "rss_scope": "whole kernel, sampled after each image; not isolated weight memory",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "versions": {
+    "numpy": "2.5.4",
+    "pillow": "13.0.0",
+    "onnxruntime": "1.31.0",
+    "rapidocr": "3.10.0",
+    "ddddocr": "1.6.1",
+    "torch": "2.14.1+cpu"
+  },
+  "parameters": 12279551,
+  "revision": "1896f25517e3e9c2905db37863bc18e774759646",
+  "batch_size": 1,
+  "cache_predictions": false
+}

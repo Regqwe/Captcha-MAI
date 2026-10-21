@@ -1,0 +1,20 @@
+{
+  "model": "ppocr-small",
+  "init_ms": 1007.201299999906,
+  "warmup_ms": 395.28299999983574,
+  "observed_rss_max_mb": 191.828125,
+  "rss_scope": "whole kernel, sampled after each image; not isolated weight memory",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "versions": {
+    "numpy": "2.5.4",
+    "pillow": "13.0.0",
+    "onnxruntime": "1.31.0",
+    "rapidocr": "3.10.0",
+    "ddddocr": "1.6.1",
+    "torch": "2.14.1+cpu"
+  },
+  "parameters": null,
+  "revision": null,
+  "batch_size": 1,
+  "cache_predictions": false
+}

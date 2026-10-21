@@ -1,0 +1,8 @@
+image_id,label,model,dataset,prediction,score,elapsed_ms,error,error_detail,correct,edits
+33ef91d464c03eb9,894412,ppocr-tiny,target,804L7,0.61735,11.934000000110245,,,False,4
+41ada5001f1e1e88,432077,ppocr-tiny,target,4320m,0.8124,12.573399999382673,,,False,2
+5cb6a434364bfe27,558796,ppocr-tiny,target,558796,0.87546,11.898100000507839,,,True,0
+7619f1f1b372df6d,181263,ppocr-tiny,target,12S,0.70472,13.403699999798846,,,False,4
+8731a1e555abd295,926325,ppocr-tiny,target,926325,0.81901,12.999699999454606,,,True,0
+d4c0652824fb2dfd,639125,ppocr-tiny,target,62話,0.69286,11.746799999855284,,,False,4
+d4d1163a8ce99293,642044,ppocr-tiny,target,642L,0.7109,12.515200000052573,,,False,3
