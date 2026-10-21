@@ -1,0 +1,10 @@
+{
+  "plan_sha256": "737c2384a1767fdd9e4ca337d24d9ee886f6569bdc97fd7cdd18ccd00391f761",
+  "attempt_limit": 10,
+  "usd_limit": "1.00",
+  "closed": true,
+  "created_at": "2026-10-21T14:08:48.216552+00:00",
+  "attempts": [],
+  "close_reason": "cancelled_by_user_before_any_api_call",
+  "closed_at": "2026-10-21T14:08:48.219223+00:00"
+}
