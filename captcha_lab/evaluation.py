@@ -2,7 +2,9 @@
 import hashlib
 import importlib.metadata
 import json
+import logging
 import math
+import os
 from pathlib import Path
 import platform
 from statistics import NormalDist
@@ -14,6 +16,7 @@ from .data import ROOT,save_json
 
 MODEL='ppocr-small'
 RESULTS=ROOT/'research/results'
+logger = logging.getLogger(__name__)
 
 
 def manifest(name='holdout', *, require_images=False):
@@ -35,6 +38,10 @@ def load_predictions(dataset):
 
 
 def run_benchmark():
+    # A Jupyter kernel is a separate process; configure its handlers on first use.
+    if not logging.getLogger('captcha_lab').handlers:
+        from .logging_config import configure_logging
+        configure_logging(os.environ.get('CAPTCHA_LOG_LEVEL', 'INFO'), ROOT/'runs/benchmark.jsonl')
     from .model import load_model
     for dataset in ['holdout','target']:manifest(dataset,require_images=True)
     started=time.perf_counter();predict=load_model();init_ms=(time.perf_counter()-started)*1000
@@ -47,11 +54,16 @@ def run_benchmark():
             start=time.perf_counter();prediction='';score=None;error=''
             try:
                 with Image.open(row.path) as image:prediction,score=predict(image.convert('RGB'))
-            except Exception as exc:error=type(exc).__name__
+            except Exception as exc:
+                error=type(exc).__name__
+                logger.exception('Ошибка распознавания benchmark-примера',
+                                 extra={'fields': {'dataset': dataset, 'image_id': row.image_id}})
             rows.append(dict(image_id=row.image_id,model=MODEL,dataset=dataset,prediction=str(prediction),
                              score=score,error=error,elapsed_ms=(time.perf_counter()-start)*1000))
             max_rss=max(max_rss,psutil.Process().memory_info().rss)
-            if i%200==0:print(MODEL,dataset,i,'/',len(labels),flush=True)
+            if i%200==0:
+                logger.info('Прогресс benchmark', extra={'fields': {
+                    'model': MODEL, 'dataset': dataset, 'processed': i, 'total': len(labels)}})
         predictions=pd.DataFrame(rows)
         frame=labels[['image_id','label','label_status']].merge(predictions,on='image_id',validate='one_to_one')
         eligible=frame.label.ne('') & frame.label_status.ne('ambiguous')
