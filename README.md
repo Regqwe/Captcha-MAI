@@ -10,6 +10,17 @@
 
 Скриншоты работы на телефоне: [docs/screenshots.md](docs/screenshots.md).
 
+## Основная команда
+
+Подключите телефон по USB, откройте форму с капчей и запустите из корня проекта:
+
+```powershell
+.\.venv\Scripts\python.exe -X utf8 scripts/run.py phone --profile phone-profile.json
+```
+
+Для [демоформы](https://2captcha.com/demo/normal) — `--profile phone-profile-demo.json`.
+Остановка — `Ctrl+C`. Установка и подготовка — ниже.
+
 - [Установка](#установка)
 - [Подготовка телефона и профиля](#подготовка-телефона-и-профиля)
 - [Запуск](#запуск)
