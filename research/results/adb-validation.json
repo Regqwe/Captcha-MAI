@@ -18,7 +18,53 @@
     "attempts": 0,
     "time": "2026-10-22T04:42:43.812757+00:00"
   },
-  "real_captcha_submission_verified": false,
-  "server_acceptance_verified": false,
-  "private_screen_capture_committed": false
+  "private_screen_capture_committed": false,
+  "target_application_submission_verified": false,
+  "production_server_acceptance_verified": false,
+  "interactive_demo": {
+    "url": "https://2captcha.com/demo/normal",
+    "profile": "phone-profile-demo.json",
+    "model": "ppocr-small",
+    "paid_api_calls": 0,
+    "input_verified": true,
+    "check_clicked": true,
+    "success_text": "Captcha is passed successfully!",
+    "success_text_observed_in_device_xml": true,
+    "watcher_accepted": true,
+    "events": [
+      {
+        "status": "stabilizing",
+        "time": "2026-10-22T04:48:47.633876+00:00"
+      },
+      {
+        "status": "submitted",
+        "raw": "W9H5K",
+        "score": 0.99965,
+        "attempt": 1,
+        "image_id": "0a53140e56be2737",
+        "inference_and_action_ms": 3750.0,
+        "time": "2026-10-22T04:48:53.672747+00:00"
+      },
+      {
+        "status": "accepted",
+        "time": "2026-10-22T04:48:55.999552+00:00"
+      },
+      {
+        "status": "already_accepted",
+        "time": "2026-10-22T04:48:59.070815+00:00"
+      },
+      {
+        "status": "session_end",
+        "frames": 5,
+        "elapsed_seconds": 16.688000000000102,
+        "median_iteration_ms": 1641.0000000000764,
+        "observe": false,
+        "attempts": 1,
+        "time": "2026-10-22T04:49:02.691657+00:00"
+      }
+    ],
+    "independent_accuracy_sample": false,
+    "unique_images": 1,
+    "completed_runs_on_same_image": 2
+  }
 }

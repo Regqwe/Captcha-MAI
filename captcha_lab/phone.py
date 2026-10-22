@@ -1,5 +1,5 @@
 """Screen interpretation and bounded watcher; no Android imports or paid services."""
-from dataclasses import dataclass, fields
+from dataclasses import MISSING, dataclass, fields
 from collections import deque
 import hashlib
 import json
@@ -28,15 +28,20 @@ class Profile:
     max_attempts: int
     poll_seconds: float
     response_seconds: float
+    success: str | None = None
 
     @classmethod
     def load(cls, path):
         data = json.loads(path.read_text(encoding='utf-8-sig'))
-        if set(data) != {f.name for f in fields(cls)}:
+        allowed = {f.name for f in fields(cls)}
+        required = {f.name for f in fields(cls) if f.default is MISSING and f.default_factory is MISSING}
+        if set(data) - allowed or not required <= set(data):
             raise ValueError('Profile fields do not match phone-profile.json')
         p = cls(**data)
         for name in ('title', 'footer', 'submit', 'refresh', 'input', 'code_pattern'):
             re.compile(getattr(p, name), re.I)
+        if p.success:
+            re.compile(p.success, re.I)
         x1, y1, x2, y2 = p.roi
         if not (0 <= x1 < x2 <= 1 and 0 <= y1 < y2 <= 1):
             raise ValueError('ROI must be normalized x1,y1,x2,y2')
@@ -106,6 +111,8 @@ def inspect(screen, profile):
     titles = matches(profile.title)
     if not titles:
         return View('absent')
+    if len(titles) == 1 and profile.success and len(matches(profile.success)) == 1:
+        return View('accepted')
     footers = matches(profile.footer)
     if len(titles) != 1 or len(footers) != 1:
         return View('unsupported_ui')
@@ -177,6 +184,11 @@ class Watcher:
         screen = self.device.capture()
         view = inspect(screen, self.profile)
         now = self.clock()
+        if view.state == 'accepted':
+            if self.pending:
+                self.pending = None
+                return self.event('accepted')
+            return self.event('already_accepted')
         if view.state == 'absent':
             self.absent += 1
             self.previous, self.stable = None, 0

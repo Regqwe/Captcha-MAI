@@ -137,6 +137,19 @@ class PhoneContracts(unittest.TestCase):
         self.assertIn('screen_left_unverified', [e['status'] for e in events])
         self.assertEqual(w.attempts, 0)
 
+    def test_explicit_success_marker_is_required_for_accepted_status(self):
+        d = Device()
+        profile = replace(PROFILE, success='^Captcha is passed successfully!$')
+        w = Watcher(d, lambda im: ('001234', .99), profile)
+        w.tick();w.tick()
+        d.frame.hierarchy = d.frame.hierarchy.replace('</node></hierarchy>',
+            '<node text="Captcha is passed successfully!" bounds="[80,1150][1000,1220]"/></node></hierarchy>')
+        self.assertEqual(w.tick(), 'accepted')
+        self.assertEqual(w.tick(), 'already_accepted')
+        # A fresh process may see the marker, but cannot attribute it to its own submission.
+        fresh = Watcher(d, lambda im: ('001234', .99), profile)
+        self.assertEqual(fresh.tick(), 'already_accepted')
+
     def test_known_no_click_failure_can_retry_but_uncertain_exception_cannot(self):
         d = Device()
         d.submit = lambda *args:False

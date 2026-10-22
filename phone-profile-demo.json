@@ -1,0 +1,25 @@
+{
+  "package": "com.android.chrome",
+  "title": "^Normal Captcha demo$",
+  "footer": "^Enter text from the image$",
+  "submit": "Check",
+  "refresh": "Reset",
+  "input": "Enter answer here",
+  "code_pattern": "[A-Za-z0-9]{5}",
+  "roi": [
+    0.1527777777777778,
+    0.5454166666666667,
+    0.8472222222222222,
+    0.6079166666666667
+  ],
+  "aspect_range": [
+    1.8,
+    2.3
+  ],
+  "min_score": 0.9,
+  "stable_frames": 2,
+  "max_attempts": 3,
+  "poll_seconds": 1.0,
+  "response_seconds": 12.0,
+  "success": "^Captcha is passed successfully!$"
+}
