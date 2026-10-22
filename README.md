@@ -55,6 +55,28 @@ python -m venv .venv
 а нужная форма — открытой. Наблюдение периодическое, без автоматического
 перехода между приложениями.
 
+## Проверки
+
+Автотесты (24 теста, около 30 секунд, телефон не нужен):
+
+```powershell
+.\.venv\Scripts\python.exe -X utf8 -m unittest discover -s tests
+```
+
+Распознавание готовой вырезки без телефона — в журнале появится
+`prediction` и `score`:
+
+```powershell
+.\.venv\Scripts\python.exe -X utf8 scripts/run.py predict docs/screenshots/02-roi-crop.png
+```
+
+Динамическая проверка на телефоне: распознавание открытой формы без ввода
+и нажатий в течение 60 секунд (см. «Запуск»):
+
+```powershell
+.\.venv\Scripts\python.exe -X utf8 scripts/run.py phone --profile phone-profile-demo.json --observe --duration 60
+```
+
 ## Логи и диагностика
 
 - Общий журнал: `runs/app.jsonl`; журнал сеанса: `runs/<дата-время>/events.jsonl`.
