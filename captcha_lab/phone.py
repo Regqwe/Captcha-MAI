@@ -173,6 +173,7 @@ class Watcher:
         self.handled = deque(maxlen=64)
         self.pending = None
         self.last_status = None
+        self.package = None
 
     def event(self, status, **data):
         if data or status != self.last_status:
@@ -182,6 +183,7 @@ class Watcher:
 
     def tick(self):
         screen = self.device.capture()
+        self.package = screen.package
         view = inspect(screen, self.profile)
         now = self.clock()
         if view.state == 'accepted':

@@ -11,6 +11,7 @@ from .phone import Profile, Screen, Watcher, inspect, same_image, signature
 from .logging_config import session_logging
 
 logger = logging.getLogger(__name__)
+HEARTBEAT_SECONDS = 30.0
 
 
 def device_inventory():
@@ -137,9 +138,16 @@ def watch(serial, profile_path, *, observe=False, duration=0, output=None):
                 level = logging.ERROR
             elif status in {'stabilizing', 'awaiting_response', 'already_seen', 'already_accepted'}:
                 level = logging.DEBUG
-            logger.log(level, 'Наблюдение: %s', status, extra={'fields': event}, exc_info=exc_info)
+            message = 'Наблюдение: ' + status
+            if status == 'waiting':
+                message = 'Ожидание: на экране не найден заголовок из выбранного профиля'
+                event.update(expected_title=profile.title, package=watcher.package)
+            elif status == 'heartbeat':
+                message = 'Цикл наблюдения активен'
+            logger.log(level, message, extra={'fields': event}, exc_info=exc_info)
         watcher = Watcher(device, predictor, profile, observe=observe, emit=emit)
         started, errors = time.monotonic(), 0
+        last_heartbeat = started
         durations = []
         frames = 0
         try:
@@ -159,6 +167,11 @@ def watch(serial, profile_path, *, observe=False, duration=0, output=None):
                          exc_info=True)
                     if errors >= 3:
                         raise RuntimeError('Три ошибки связи/интерфейса подряд; наблюдение остановлено') from exc
+                now = time.monotonic()
+                if now-last_heartbeat >= HEARTBEAT_SECONDS:
+                    emit(status='heartbeat', current_status=watcher.last_status, frames=frames,
+                         elapsed_seconds=now-started, package=watcher.package)
+                    last_heartbeat = now
                 time.sleep(profile.poll_seconds)
         except KeyboardInterrupt:
             emit(status='stopped')
