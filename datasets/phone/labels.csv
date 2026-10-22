@@ -1,0 +1,3 @@
+image_id,image_path,label,label_status,roi,sha256,source,source_url
+screen,datasets/phone/screen.png,558796,assistant_visual,"[0.1, 0.23, 0.9, 0.35]",5cb6a434364bfe273cf3cd95dadf957ac9a100f5d141b93beed0194cd568ef0b,user_shared_drive,https://drive.google.com/file/d/1E2WCm-auOcLo5LLHh_UwmhZu_mlJzumL/view
+letter_crop,datasets/phone/letter_crop.png,W9H5K,assistant_visual,,4413ec0c08d0400443512201c9c57e47783efc94fe0fdc71d1b4959388936622,user_shared_drive,https://drive.google.com/file/d/1pJpyftGhKJXRDZfMr7loiJnwsMLbdsEX/view

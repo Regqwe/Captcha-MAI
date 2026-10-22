@@ -1,4 +1,4 @@
-"""One model, one notebook, one entry point. No paid API calls."""
+"""One local model: evaluation, image recognition and Android screen watcher."""
 import argparse
 from pathlib import Path
 import sys
@@ -34,17 +34,53 @@ def benchmark():
     print('PASSED',path.name);review()
 
 
-if __name__=='__main__':
+def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command',choices=['review','benchmark','predict'],nargs='?',default='review')
-    parser.add_argument('image',nargs='?',help='Cropped image for predict')
+    sub=parser.add_subparsers(dest='command')
+    sub.add_parser('review',help='View saved real evaluation')
+    sub.add_parser('benchmark',help='Run the final notebook with actual inference')
+    sub.add_parser('phone-eval',help='Actual inference on labeled Drive examples')
+    pred=sub.add_parser('predict',help='Recognize an already cropped image')
+    pred.add_argument('image',type=Path)
+    check=sub.add_parser('phone-check',help='List ADB devices and authorization states')
+    cap=sub.add_parser('phone-capture',help='Save a phone screenshot and UI XML locally')
+    cap.add_argument('--serial')
+    cap.add_argument('--output',type=Path,default=ROOT/'runs/capture')
+    phone=sub.add_parser('phone',help='Watch and submit supported challenges; Ctrl+C stops')
+    phone.add_argument('--serial')
+    phone.add_argument('--profile',type=Path,default=ROOT/'phone-profile.json')
+    phone.add_argument('--observe',action='store_true',help='Recognize without typing or clicking')
+    phone.add_argument('--duration',type=float,default=0,help='Seconds, 0 means until Ctrl+C')
+    phone.add_argument('--output',type=Path,help='Local event log folder (default runs/timestamp)')
     args=parser.parse_args()
-    if args.command=='review':review()
+    if args.command in (None,'review'):review()
     elif args.command=='benchmark':benchmark()
-    else:
-        if not args.image:parser.error('predict requires an image path')
+    elif args.command=='predict':
         from PIL import Image
         from captcha_lab.model import load_model
         predict=load_model()
         with Image.open(args.image) as image:text,score=predict(image)
         print(text)
+    elif args.command=='phone-check':
+        import json
+        from captcha_lab.android import device_inventory
+        devices=device_inventory()
+        print(json.dumps(devices,ensure_ascii=False,indent=2))
+        if not devices:print('Телефон не найден. Подключите USB и разрешите отладку на телефоне.')
+    elif args.command=='phone-capture':
+        from captcha_lab.android import capture
+        capture(args.serial,args.output)
+    elif args.command=='phone-eval':
+        from captcha_lab.android import evaluate_phone
+        evaluate_phone()
+    else:
+        from captcha_lab.android import watch
+        if args.duration<0:parser.error('--duration must be >= 0')
+        watch(args.serial,args.profile,observe=args.observe,duration=args.duration,output=args.output)
+
+
+if __name__=='__main__':
+    try:main()
+    except Exception as exc:
+        print(f'{type(exc).__name__}: {exc}',file=sys.stderr)
+        raise SystemExit(1)

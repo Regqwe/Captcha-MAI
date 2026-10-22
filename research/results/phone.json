@@ -1,0 +1,38 @@
+{
+  "dataset": "phone_development",
+  "n": 2,
+  "correct": 2,
+  "label_source": "assistant visual transcription, not independent annotation",
+  "hardware_verified": false,
+  "paid_calls": 0,
+  "rows": [
+    {
+      "image_id": "screen",
+      "image_path": "datasets/phone/screen.png",
+      "label": "558796",
+      "label_status": "assistant_visual",
+      "roi": "[0.1, 0.23, 0.9, 0.35]",
+      "sha256": "5cb6a434364bfe273cf3cd95dadf957ac9a100f5d141b93beed0194cd568ef0b",
+      "source": "user_shared_drive",
+      "source_url": "https://drive.google.com/file/d/1E2WCm-auOcLo5LLHh_UwmhZu_mlJzumL/view",
+      "prediction": "558796",
+      "score": 0.94088,
+      "correct": true,
+      "elapsed_ms": 38.436799999999494
+    },
+    {
+      "image_id": "letter_crop",
+      "image_path": "datasets/phone/letter_crop.png",
+      "label": "W9H5K",
+      "label_status": "assistant_visual",
+      "roi": "",
+      "sha256": "4413ec0c08d0400443512201c9c57e47783efc94fe0fdc71d1b4959388936622",
+      "source": "user_shared_drive",
+      "source_url": "https://drive.google.com/file/d/1pJpyftGhKJXRDZfMr7loiJnwsMLbdsEX/view",
+      "prediction": "W9H5K",
+      "score": 0.99929,
+      "correct": true,
+      "elapsed_ms": 23.83549999990464
+    }
+  ]
+}

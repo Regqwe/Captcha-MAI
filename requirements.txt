@@ -7,3 +7,4 @@ nbformat==5.11.1
 nbclient==0.11.0
 ipykernel==7.4.0
 psutil==7.2.2
+uiautomator2==3.7.0
